@@ -133,6 +133,9 @@ export class ItemsListComponent implements OnInit {
 
   addPost() {
     this.afs.collection('posts').add({'title': this.title, 'content': this.content, 'age': [this.age] })
+    this.title = null;
+    this.content = null;
+    this.age = null;
    // this.afs.collection('posts').doc('my-custom-id').set({'title': this.title, 'content': this.content })
   }
 
@@ -140,6 +143,7 @@ export class ItemsListComponent implements OnInit {
    // console.log(postId)
     this.postDoc = this.afs.doc('posts/' + postId);
     this.post = this.postDoc.valueChanges();
+    console.log(this.post)
   }
 
   deletePostFstore(postId) {

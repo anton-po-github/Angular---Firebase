@@ -95,7 +95,7 @@
         value="Add a post"
         (click)="addPost()">Add Post</button>
 
-
+<br><br>
 
 <!--
 <ul class="form-control" *ngFor="let post of posts | async">
@@ -111,19 +111,20 @@
 
 <ul class="list-group" *ngFor="let post of posts | async">
   <li class="list-group-item" (click)="getPostFstore(post.id)">
-    <h3>{{ post.data.title }} <br>
+    <h3>Title: {{ post.data.title }} <br>
       <button class="btn btn-danger" (click)="deletePostFstore(post.id)">
         Delete
       </button>
     </h3>
     <br>
-    {{ post.data.content }}
-    {{ post.data.age }}
+    <p>Age: {{ post.data.age }}</p>
+    <p>Content: {{ post.data.content }}</p>
   </li>
 </ul>
 <br><br>
 <h1>A specific post:</h1>
-<h2> {{ (post | async)?.title }} </h2>
-<h4> {{ (post | async)?.content }} </h4>
+<h2>Title: {{ (post | async)?.title }} </h2>
+<h4>Age: {{ (post | async)?.age }} </h4>
+<h4>Content: {{ (post | async)?.content }} </h4>
 
 
