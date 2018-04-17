@@ -1,0 +1,33 @@
+<div class="card-header" >
+  <p>Edit: {{ titleText }}</p>
+</div>
+
+<div class="card-block">
+  <input
+    class="form-control"
+    placeholder="content"
+    [(ngModel)]="content"
+    required
+    minlength="2"
+    maxlength="23"
+    #title="ngModel"
+    autofocus
+    type="text">
+</div>
+
+<div class="card-block">
+  <input
+    class="form-control"
+    placeholder="titleText"
+    [(ngModel)]="titleText"
+    required
+    minlength="2"
+    maxlength="23"
+    #title="ngModel"
+    autofocus
+    type="text">
+</div>
+
+<div class="card-footer">
+  <button class="btn btn-primary" (click)="goEdit()">edit</button>
+</div>

@@ -1,0 +1,43 @@
+<h2>Filters</h2>
+<h4>Family</h4>
+
+<select [(ngModel)]="family" (change)="filterExact('family', family)">
+  <option value="bird">Bird</option>
+  <option value="mammal">Mammal</option>
+  <option value="fish">Fish</option>
+</select>
+
+<button *ngIf="family"
+        (click)="removeFilter('family')">
+  Remove filter
+</button>
+
+<h4>Weight Greater Than</h4>
+
+<input type="number"
+       [(ngModel)]="weight"
+       (change)="filterGreaterThan('weight', weight)">
+
+<button *ngIf="weight"
+        (click)="removeFilter('weight')">
+  Remove filter
+</button>
+
+<h4>Endangered Species</h4>
+
+<input type="checkbox"
+       [(ngModel)]="endangered"
+       (change)="filterBoolean('endangered', endangered)">
+Endangered?
+<h2>Animals</h2>
+
+<div class="form-control" *ngFor="let animal of filteredAnimals">
+  <h6>{{animal.name}}</h6>
+  <img [src]="animal.image" style="width: 150px; height: 150px">
+  <ul>
+    <li>Family: {{animal.family}}</li>
+    <li>Weight: {{animal.weight}} pounds</li>
+    <li>Endangered: {{animal.endangered}}</li>
+  </ul>
+</div>
+

@@ -1,0 +1,129 @@
+
+<!--<button class="btn btn-primary" mat-button>Click me!</button>-->
+<!--<mat-button-toggle>Toggle me!</mat-button-toggle>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile>1</mat-grid-tile>
+  <mat-grid-tile>2</mat-grid-tile>
+  <mat-grid-tile>3</mat-grid-tile>
+  <mat-grid-tile>4</mat-grid-tile>
+</mat-grid-list>-->
+
+<h3>Upload</h3>
+<div *ngIf="currentUpload">
+  <div class="progress">
+    <div class="progress-bar progress-bar-animated"
+         [ngStyle]="{ 'width': currentUpload?.progress + '%' }">
+
+    </div>
+  </div>
+  Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
+</div>
+
+<div *ngFor="let item of imageArray">
+  <div class="form-group">
+    <img style="width: 50px; height: 50px"
+         class="img-responsive" [src]="item.url" alt="">
+  </div>
+  <div class="btn btn-danger" (click)="deleteImage(item)">Delete image</div>
+</div>
+<br><br>
+<label>
+  <input type="file" (change)="detectFiles($event)">
+</label>
+
+<button
+  class="btn btn-primary"
+  [disabled]="!selectedFiles"
+  (click)="uploadSingle()">
+  Upload Single
+</button>
+<br><br>
+
+
+<!--<label>
+  <input type="file" (change)="detectFiles($event)" multiple>
+</label>
+
+<button
+  class="btn btn-primary"
+  [disabled]="!selectedFiles"
+  (click)="uploadMulti()">
+  Upload Multiple
+</button>-->
+
+<br><br><br>
+
+
+<h1>Sorting</h1>
+
+<button class="btn btn-primary"
+        [routerLink]="['/item/animal-list']">Go to Animals List</button>
+
+
+<br><br>
+
+
+<app-item-form></app-item-form>
+
+<div *ngFor="let item of items | async" class="card">
+  <app-item-detail [item]='item'></app-item-detail>
+</div>
+
+<button class="btn btn-danger" (click)='deleteItems()'>Delete Entire List</button>
+<br>
+<br>
+<br><br><br>
+
+<h1>Firebase Cloud Firestore Database</h1>
+
+<div class="form-group">
+  <input class="form-control"
+         type="text"
+         [(ngModel)]="title"
+         name="title" placeholder="Title...">
+  <input class="form-control"
+         type="text"
+         [(ngModel)]="age"
+         name="age" placeholder="Age ...">
+  <textarea class="form-control"
+            [(ngModel)]="content"
+            name="content"
+            placeholder="Content..."></textarea>
+</div>
+<button class="btn btn-primary"
+        type="button"
+        value="Add a post"
+        (click)="addPost()">Add Post</button>
+
+
+
+<!--
+<ul class="form-control" *ngFor="let post of posts | async">
+  <li (click)="getPostFstore(post.id)">
+    <strong>{{ post.title }}</strong>
+    <br>
+    {{ post.content }}
+  </li>
+</ul>
+-->
+
+
+
+<ul class="list-group" *ngFor="let post of posts | async">
+  <li class="list-group-item" (click)="getPostFstore(post.id)">
+    <h3>{{ post.data.title }} <br>
+      <button class="btn btn-danger" (click)="deletePostFstore(post.id)">
+        Delete
+      </button>
+    </h3>
+    <br>
+    {{ post.data.content }}
+    {{ post.data.age }}
+  </li>
+</ul>
+<br><br>
+<h1>A specific post:</h1>
+<h2> {{ (post | async)?.title }} </h2>
+<h4> {{ (post | async)?.content }} </h4>
+
+

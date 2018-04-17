@@ -1,0 +1,33 @@
+<div class="card-header" *ngFor="let post of posts | async">
+  <div class="card-block">
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+  </div>
+
+  <!--<div class="card-footer">
+    <button
+      class="btn btn-danger"
+      *ngIf="postSvc.canDelete"
+      (click)="postSvc.deletePost(post.$key)"
+      >Delete Post</button>
+    <button
+      class="btn btn-primary"
+      *ngIf="postSvc.canEdit"
+      [routerLink]="['/roles/edit', post.$key]"
+      >Edit Post
+    </button>
+  </div>-->
+
+  <div class="card-footer">
+    <button
+      class="btn btn-danger"
+      (click)="postSvc.deletePost(post.$key)"
+    >Delete Post</button>
+    <button
+      class="btn btn-primary"
+      [routerLink]="['/roles/edit', post.$key]"
+    >Edit Post
+    </button>
+  </div>
+
+</div>

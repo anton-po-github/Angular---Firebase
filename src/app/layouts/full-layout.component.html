@@ -1,0 +1,101 @@
+
+
+<header class="app-header navbar">
+  <button class="navbar-toggler d-lg-none" type="button" appMobileSidebarToggler>&#9776;</button>
+  <a class="navbar-brand" href="#"></a>
+  <ul class="nav navbar-nav mr-auto d-md-down-none">
+    <li class="nav-item">
+      <a class="nav-link navbar-toggler" href="#" appSidebarToggler>&#9776;</a>
+    </li>
+  </ul>
+</header>
+
+<div class="app-body">
+  <div class="sidebar">
+    <nav class="sidebar-nav">
+
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/dashboard']"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-info">NEW</span></a>
+        </li>
+      </ul>
+
+      <ul class="nav">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLink]="['/item/item-list']"><i class="icon-speedometer"></i> Item </a>
+        </li>
+      </ul>
+
+      <ul class="nav">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLink]="['/roles/posts']"><i class="icon-speedometer"></i> Roles </a>
+        </li>
+      </ul>
+
+      <ul class="nav">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLink]="['/chat/chat-dialog']"><i class="icon-speedometer"></i> Chat </a>
+        </li>
+      </ul>
+      <ul class="nav">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLink]="['/ng-rx/view']"><i class="icon-speedometer"></i> NG-RX </a>
+        </li>
+      </ul>
+
+      <ul class="nav">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLink]="['/auth/login']"><i class="icon-speedometer"></i> Custom Usernames </a>
+        </li>
+      </ul>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <ul class="nav" style="cursor: pointer">
+        <li class="nav-item">
+          <a class="nav-link"
+             routerLinkActive="active"
+             (click)="logOut()"><i class="icon-speedometer"></i> Logout</a>
+        </li>
+      </ul>
+
+
+    </nav>
+  </div>
+
+  <!-- Main content -->
+  <main class="main">
+
+    <!-- Breadcrumb -->
+    <ol class="breadcrumb">
+      <app-breadcrumbs></app-breadcrumbs>
+    </ol>
+
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div><!-- /.conainer-fluid -->
+  </main>
+</div>
+
+<footer class="app-footer">
+  <a href="http://coreui.io">CoreUI</a> &copy; 2017 creativeLabs.
+  <span class="float-right">Powered by <a href="http://coreui.io">CoreUI</a></span>
+</footer>

@@ -1,0 +1,35 @@
+
+<!--<h2>{{ message$ | async }}</h2>
+<button (click)="spanishMessage()">Spanish</button>
+<button (click)="frenchMessage()">French</button>-->
+
+
+<!--<div *ngIf="post | async as p">
+  <h2>{{ p.text }}</h2>
+  <h4>Votes: {{ p.likes }}</h4>
+  <button (click)="upvote()">Upvote</button>
+  <button (click)="downvote()">Downvote</button>
+  <button (click)="resetPost()">Reset</button>
+  <input [(ngModel)]="text">
+  <button (click)="editText()" >Change Title</button>
+</div>-->
+
+
+<h1>Welcome to Ngrx Pizza!</h1>
+<div *ngFor="let pizza of pizzas | async">
+  <img src="assets/img/pizza.png" width="200px">
+  <h3>Pizza ID: {{ pizza.id }} </h3>
+  <p>Size: {{ pizza.size }}</p>
+
+  <button class="btn btn-primary" *ngIf="pizza.size==='small'"
+          (click)="updatePizza(pizza.id, 'large')">
+    Upgrade to Large
+  </button>
+  <button class="btn btn-primary" *ngIf="pizza.size==='large'"
+          (click)="updatePizza(pizza.id, 'small')">
+    Downgrade to Small
+  </button>
+  <button class="btn btn-danger" (click)="deletePizza(pizza.id)">DELETE</button>
+</div>
+<br>
+<button class="btn btn-success" (click)="createPizza()">CREATE new Pizza</button>
