@@ -44,7 +44,6 @@ interface PostId extends Post {
 export class ItemsListComponent implements OnInit {
 
   selectedFiles: FileList;
-  selectedFiles2: FileList;
   currentUpload: Upload;
 
   public item: FirebaseObjectObservable<Item[]>;
