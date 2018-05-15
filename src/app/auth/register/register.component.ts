@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
   userName;
   userPassword;
 
+
   constructor(private angularFireAuth: AngularFireAuth) { }
 
   ngOnInit() {
@@ -31,7 +32,7 @@ export class RegisterComponent implements OnInit {
       tosUrl: '<your-tos-url>'
     };
   */
-      }
+  }
 
   createAccount() {
     this.angularFireAuth.auth.createUserWithEmailAndPassword(this.userName, this.userPassword)
