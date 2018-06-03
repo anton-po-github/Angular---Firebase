@@ -73,7 +73,7 @@
 <br>
 <br>
 <br><br><br>
-test
+
 <h1>Firebase Cloud Firestore Database</h1>
 
 <div class="form-group">
@@ -95,6 +95,12 @@ test
         value="Add a post"
         (click)="addPost()">Add Post</button>
 
+<br><br>
+
+<h1>A specific post:</h1>
+<h2>Title: {{ (post | async)?.title }} </h2>
+<h4>Age: {{ (post | async)?.age }} </h4>
+<h4>Content: {{ (post | async)?.content }} </h4>
 <br><br>
 
 <!--
@@ -119,10 +125,5 @@ test
     <p>Content: {{ post.data.content }}</p>
   </li>
 </ul>
-<br><br>
-<h1>A specific post:</h1>
-<h2>Title: {{ (post | async)?.title }} </h2>
-<h4>Age: {{ (post | async)?.age }} </h4>
-<h4>Content: {{ (post | async)?.content }} </h4>
 
 
