@@ -78,7 +78,7 @@ export class ItemsListComponent implements OnInit {
         data => console.log(data)
       );*/
 
-    // ID magic !!!!
+    // ID magic !!!!!
     this.afs.collection('post')
       .snapshotChanges()
       .map(docArray => {
