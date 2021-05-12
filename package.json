@@ -34,7 +34,7 @@
     "@ngrx/store": "^4.1.0",
     "@ngrx/store-devtools": "^4.0.0",
     "@types/angular-material": "^1.1.55",
-    "chart.js": "2.6.0",
+    "chart.js": "2.9.4",
     "child-process-promise": "^2.2.1",
     "core-js": "2.5.0",
     "firebase-admin": "^5.11.0",
